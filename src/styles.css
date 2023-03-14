@@ -25,6 +25,9 @@ h5 {
   font-size: 15px;
   padding-top: 10px;
 }
+.coder {
+  text-align: center;
+}
 
 .Tom {
   border-left: 30px solid rgb(115, 13, 188);
