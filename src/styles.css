@@ -1,0 +1,56 @@
+.container {
+  margin-top: 30px;
+  padding-top: 20px;
+  padding-right: 20px;
+  background: aquamarine;
+  padding-left: 30px;
+  border-radius: 10px;
+  max-width: 700px;
+}
+ul {
+  list-style: none;
+  margin-top: 35px;
+  margin-bottom: 60px;
+}
+h1 {
+  color: #939aa9;
+  font-size: 50px;
+}
+h2 {
+  color: #5a6275;
+  font-size: 50px;
+}
+h4,
+h5 {
+  font-size: 15px;
+  padding-top: 10px;
+}
+
+.Tom {
+  border-left: 30px solid rgb(115, 13, 188);
+  height: 100px;
+}
+.Tue {
+  border-left: 30px solid rgb(115, 13, 188);
+  height: 30px;
+}
+.Wed {
+  border-left: 30px solid rgb(115, 13, 188);
+  height: 20px;
+}
+.Thu {
+  border-left: 30px solid rgb(115, 13, 188);
+  height: 60px;
+}
+.Fri {
+  border-left: 30px solid rgb(115, 13, 188);
+  height: 80px;
+}
+.Sat {
+  border-left: 30px solid rgb(115, 13, 188);
+  height: 60px;
+}
+.Sun {
+  border-left: 30px solid rgb(115, 13, 188);
+  height: 20px;
+}
