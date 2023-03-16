@@ -19,6 +19,12 @@ function showCurrentTemp(response) {
   temprature.innerHTML = response.data.main.temp;
   let head = document.querySelector("h1");
   head.innerHTML = response.data.name;
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = response.data.main.humidity;
+  let feelLike = document.querySelector("#feel");
+  feelLike.innerHTML = response.data.main.feels_like;
+  let wind = document.querySelector("#speed");
+  wind.innerHTML = response.data.wind.speed;
 }
 
 function currentTemp(position) {
