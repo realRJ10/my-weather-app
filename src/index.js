@@ -4,7 +4,7 @@ function showTemp(response) {
   let head = document.querySelector("h1");
   head.innerHTML = response.data.name;
   let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = `${response.data.main.humidity}%`;
+  humidity.innerHTML = `${response.data.main.humidity} %`;
   let feelLike = document.querySelector("#feel");
   feelLike.innerHTML = `${response.data.main.feels_like} °C`;
   let wind = document.querySelector("#speed");

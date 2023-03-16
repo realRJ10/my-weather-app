@@ -2,14 +2,18 @@
   margin-top: 30px;
   padding-top: 20px;
   padding-right: 20px;
-  background: aquamarine;
+  background: rgba(166, 155, 245, 0.516);
+  border: 2px solid #4c3381;
+  border-radius: 5px;
   padding-left: 30px;
   border-radius: 10px;
   max-width: 700px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 ul {
   list-style: none;
-  margin-top: 35px;
+
   margin-bottom: 60px;
 }
 h1 {
@@ -20,6 +24,9 @@ h2 {
   color: #5a6275;
   font-size: 50px;
 }
+h3 {
+  font-size: 20px;
+}
 h4,
 h5 {
   font-size: 15px;
@@ -28,32 +35,6 @@ h5 {
 .coder {
   text-align: center;
 }
-
-.Tom {
-  border-left: 30px solid rgb(115, 13, 188);
-  height: 100px;
-}
-.Tue {
-  border-left: 30px solid rgb(115, 13, 188);
-  height: 30px;
-}
-.Wed {
-  border-left: 30px solid rgb(115, 13, 188);
-  height: 20px;
-}
-.Thu {
-  border-left: 30px solid rgb(115, 13, 188);
-  height: 60px;
-}
-.Fri {
-  border-left: 30px solid rgb(115, 13, 188);
-  height: 80px;
-}
-.Sat {
-  border-left: 30px solid rgb(115, 13, 188);
-  height: 60px;
-}
-.Sun {
-  border-left: 30px solid rgb(115, 13, 188);
-  height: 20px;
+#forecast {
+  padding-bottom: 20px;
 }
