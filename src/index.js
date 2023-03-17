@@ -1,6 +1,6 @@
 function showTemp(response) {
   let temprature = document.querySelector("#temp");
-  temprature.innerHTML = Math.round(response.data.main.temp);
+  temprature.innerHTML = `${Math.round(response.data.main.temp)}°C`;
   let head = document.querySelector("h1");
   head.innerHTML = response.data.name;
   let humidity = document.querySelector("#humidity");
@@ -27,7 +27,7 @@ function changeCity(event) {
 
 function showCurrentTemp(response) {
   let temprature = document.querySelector("#temp");
-  temprature.innerHTML = Math.round(response.data.main.temp);
+  temprature.innerHTML = `${Math.round(response.data.main.temp)}°C`;
   let head = document.querySelector("h1");
   head.innerHTML = response.data.name;
   let humidity = document.querySelector("#humidity");
