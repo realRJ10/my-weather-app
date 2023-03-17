@@ -32,6 +32,10 @@ h5 {
   font-size: 15px;
   padding-top: 10px;
 }
+#temp {
+  position: relative;
+  left: 0;
+}
 .coder {
   text-align: center;
 }
