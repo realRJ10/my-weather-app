@@ -1,6 +1,31 @@
+function date() {
+  let timeHeading = document.querySelector("#time");
+
+  let minute = new Date().getMinutes();
+  if (minute < 10) {
+    minute = "0" + minute;
+  }
+  let hour = new Date().getHours();
+  if (hour < 10) {
+    hour = "0" + hour;
+  }
+  let day = new Date().getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  timeHeading.innerHTML = `${days[day]} ${hour}:${minute}`;
+}
+date();
+
 function showTemp(response) {
   let temprature = document.querySelector("#temp");
-  temprature.innerHTML = `${Math.round(response.data.main.temp)}°C`;
+  temprature.innerHTML = `${Math.round(response.data.main.temp)} °C`;
   let head = document.querySelector("h1");
   head.innerHTML = response.data.name;
   let humidity = document.querySelector("#humidity");
@@ -27,15 +52,15 @@ function changeCity(event) {
 
 function showCurrentTemp(response) {
   let temprature = document.querySelector("#temp");
-  temprature.innerHTML = `${Math.round(response.data.main.temp)}°C`;
+  temprature.innerHTML = `${Math.round(response.data.main.temp)} °C`;
   let head = document.querySelector("h1");
   head.innerHTML = response.data.name;
   let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = response.data.main.humidity;
+  humidity.innerHTML = `${response.data.main.humidity} %`;
   let feelLike = document.querySelector("#feel");
-  feelLike.innerHTML = response.data.main.feels_like;
+  feelLike.innerHTML = `${response.data.main.feels_like} °C`;
   let wind = document.querySelector("#speed");
-  wind.innerHTML = response.data.wind.speed;
+  wind.innerHTML = `${response.data.wind.speed} m/s`;
   let icon = document.querySelector("#icon");
   icon.setAttribute(
     "src",
@@ -60,27 +85,5 @@ currentButton.addEventListener("click", getLocBottun);
 let button = document.querySelector("#button");
 button.addEventListener("click", changeCity);
 
-function date() {
-  let timeHeading = document.querySelector("#time");
-
-  let minute = new Date().getMinutes();
-  if (minute < 10) {
-    minute = "0" + minute;
-  }
-  let hour = new Date().getHours();
-  if (hour < 10) {
-    hour = "0" + hour;
-  }
-  let day = new Date().getDay();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  timeHeading.innerHTML = `${days[day]} ${hour}:${minute}`;
-}
-date();
+navigator.geolocation.getCurrentPosition(currentTemp);
+showCurrentTemp();
