@@ -31,7 +31,7 @@ function showTemp(response) {
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = `${response.data.main.humidity} %`;
   let feelLike = document.querySelector("#feel");
-  feelLike.innerHTML = `${response.data.main.feels_like} °C`;
+  feelLike.innerHTML = `${Math.round(response.data.main.feels_like)} °C`;
   let wind = document.querySelector("#speed");
   wind.innerHTML = `${response.data.wind.speed} m/s`;
   let icon = document.querySelector("#icon");
@@ -62,7 +62,7 @@ function showCurrentTemp(response) {
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = `${response.data.main.humidity} %`;
   let feelLike = document.querySelector("#feel");
-  feelLike.innerHTML = `${response.data.main.feels_like} °C`;
+  feelLike.innerHTML = `${Math.round(response.data.main.feels_like)} °C`;
   let wind = document.querySelector("#speed");
   wind.innerHTML = `${response.data.wind.speed} m/s`;
   let icon = document.querySelector("#icon");
@@ -92,7 +92,7 @@ function changeTempToF(event) {
   let temprature = document.querySelector("#temp");
   temprature.innerHTML = Math.round((celsius * 9) / 5 + 32);
   let feelLike = document.querySelector("#feel");
-  feelLike.innerHTML = `${(celsiusFeel * 9) / 5 + 32} °F`;
+  feelLike.innerHTML = `${Math.round((celsiusFeel * 9) / 5 + 32)} °F`;
 }
 
 function changeTempToC(event) {
@@ -100,7 +100,7 @@ function changeTempToC(event) {
   let temprature = document.querySelector("#temp");
   temprature.innerHTML = Math.round(celsius);
   let feelLike = document.querySelector("#feel");
-  feelLike.innerHTML = `${celsiusFeel} °C`;
+  feelLike.innerHTML = `${Math.round(celsiusFeel)} °C`;
 }
 
 let celsius = null;

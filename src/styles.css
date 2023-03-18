@@ -13,8 +13,6 @@
 }
 ul {
   list-style: none;
-
-  margin-bottom: 60px;
 }
 h1 {
   color: #939aa9;
@@ -38,6 +36,8 @@ h5 {
 }
 #forecast {
   padding-bottom: 20px;
+  padding-top: 10px;
+  text-align: center;
 }
 #degree {
   font-family: monospace;
