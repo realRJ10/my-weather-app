@@ -23,19 +23,37 @@ function date() {
 }
 date();
 
-function displayForecast() {
-  let forecast = document.querySelector("#forecast");
+let city = null;
 
+function getForecast(cityName) {
+  let apiKey = "f3009e4852fa0a079dab291dabf020c4";
+  let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&cnt=7&appid=${apiKey}`;
+  axios.get(forecastUrl).then(displayForecast);
+}
+
+function formatForcastDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = document.querySelector("#forecast");
   let forecastHTML = ` <div class="row">`;
-  let days = ["sat", "sun", "mon", "tue", "wed", "thu", "fri"];
+  let days = response.data.list;
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
       ` <div class="col">
          <h4>
-          <div>${day}</div>
-          <img src="https://openweathermap.org/img/wn/04d@2x.png" width="40px" />
-          <div>18° 12°</div>
+          <div>${formatForcastDate(day.dt)}</div>
+          <img src="https://openweathermap.org/img/wn/${
+            day.weather[0].icon
+          }@2x.png" width="40px" />
+          <div><span>${Math.round(
+            day.main.temp_max
+          )}°</span>|<span>${Math.round(day.main.temp_min)}°</span></div>
          </h4>
         </div>`;
   });
@@ -63,13 +81,13 @@ function showTemp(response) {
   description.innerHTML = response.data.weather[0].description;
   celsius = response.data.main.temp;
   celsiusFeel = response.data.main.feels_like;
-  displayForecast();
+  getForecast(city);
 }
 
 function changeCity(event) {
   event.preventDefault();
   let input = document.querySelector("#input");
-  let city = input.value;
+  city = input.value;
   let apiKey = "f3009e4852fa0a079dab291dabf020c4";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(weatherUrl).then(showTemp, changeTempToF);
@@ -95,7 +113,7 @@ function showCurrentTemp(response) {
   description.innerHTML = response.data.weather[0].description;
   celsius = response.data.main.temp;
   celsiusFeel = response.data.main.feels_like;
-  displayForecast();
+  getForecast();
 }
 
 function currentTemp(position) {
