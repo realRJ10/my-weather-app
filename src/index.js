@@ -114,7 +114,7 @@ function showCurrentTemp(response) {
   description.innerHTML = response.data.weather[0].description;
   celsius = response.data.main.temp;
   celsiusFeel = response.data.main.feels_like;
-  getForecast();
+  getForecast(response.data.coord);
 }
 
 function currentTemp(position) {
