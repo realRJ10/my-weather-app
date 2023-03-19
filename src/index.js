@@ -27,7 +27,7 @@ let city = null;
 
 function getForecast(cityName) {
   let apiKey = "f3009e4852fa0a079dab291dabf020c4";
-  let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&cnt=7&appid=${apiKey}`;
+  let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=${apiKey}`;
   axios.get(forecastUrl).then(displayForecast);
 }
 
@@ -35,14 +35,16 @@ function formatForcastDate(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  return days[day];
+  time = date.getHours();
+  return `${days[day]}  ${time}`;
 }
 
 function displayForecast(response) {
   let forecast = document.querySelector("#forecast");
   let forecastHTML = ` <div class="row">`;
-  let days = response.data.list;
-  days.forEach(function (day) {
+  let list = response.data.list;
+
+  list.forEach(function (day) {
     forecastHTML =
       forecastHTML +
       ` <div class="col">
@@ -55,7 +57,7 @@ function displayForecast(response) {
             day.main.temp_max
           )}°</span>|<span>${Math.round(day.main.temp_min)}°</span></div>
          </h4>
-        </div>`;
+           </div>`;
   });
   forecastHTML = forecastHTML + `</div>`;
   forecast.innerHTML = forecastHTML;
